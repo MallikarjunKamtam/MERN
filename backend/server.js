@@ -1,9 +1,12 @@
 const { json } = require("body-parser");
 const express = require("express");
+const colors = require("colors");
 const dotenv = require("dotenv").config();
 const port = process.env.PORT || 4000;
 const app = express();
 const { errorHandler } = require("../backend/middleware/errorMiddleware");
+const connectDB = require("../backend/config/db");
+connectDB();
 
 app.use(express.json());
 app.use(
